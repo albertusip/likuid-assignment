@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import SearchForm from './components/SearchForm'
+import UniversityCards from './components/UniversityCards'
+
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+
+const App = () => {
+    const [formValue, setFormValue] = useState();
+    const handleFormSubmit = (value) => {
+        setFormValue(value);
+    };
+
+    return (
+        <>
+            <Navbar
+                sticky="top"
+                variant="dark"
+                className="bg-blue--light"
+            >
+                <Navbar.Brand href="/">University Finder</Navbar.Brand>
+            </Navbar>
+            <Container fluid>
+                <Row>
+                    <Col
+                        sm={12}
+                        className="mt-5 mb-3"    
+                    >
+                        <Container>
+                            <SearchForm
+                                onSubmit={handleFormSubmit}
+                            />
+                        </Container>
+                    </Col>
+                    <Col sm={12}>
+                        <Card>
+                            <Card.Body>
+                                <UniversityCards
+                                    formValue={formValue}
+                                />
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+        </>
+    );
 }
 
 export default App;
