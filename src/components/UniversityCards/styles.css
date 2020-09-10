@@ -46,3 +46,30 @@
   background-color: #36CAE7!important;
   border-color: #36CAE7!important;
 }
+
+.btn-green--light {
+  background-color: #54D29D!important;
+  border-color: #54D29D!important;
+  color: #fff;
+}
+
+.btn-green--light:hover {
+  background-color: #3ECC90!important;
+  border-color: #3ECC90!important;
+}
+
+.btn-light-no-bg {
+  color: #212529!important;
+  background-color: transparent!important;
+  border-color: transparent!important;
+}
+
+.btn-light-no-bg:hover {
+    color: #212529!important;
+    background-color: #e2e6ea!important;
+    border-color: #dae0e5!important;
+}
+
+.btn.focus, .btn:focus {
+  box-shadow: none;
+}
