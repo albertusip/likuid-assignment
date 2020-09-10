@@ -13,6 +13,7 @@ import "./styles.css";
 const UniversityCards = ( {formValue} ) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
     const [paginationOptions, setPaginationOptions] = useState({
         offset: 0,
         perPage: 10,
@@ -39,6 +40,7 @@ const UniversityCards = ( {formValue} ) => {
             
         } catch (error) {
             console.error(error);
+            setIsError(true);
         } finally {
             setIsLoading(false);
         }
@@ -95,6 +97,13 @@ const UniversityCards = ( {formValue} ) => {
                             </Card>
                         </Col>
                     )
+                }
+                {
+                    isError ?
+                        <div className="text-center">
+                            <div>Request time out !! because fetch more than 9000 data</div>
+                            <div>Please Reload page</div>
+                        </div> : null
                 }
             </Row>
             <div className="d-flex">
